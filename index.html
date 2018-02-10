@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>Knowladge Race 10.2.18 FINAL</title>
+<title>Knowladge Race 11.2.18 FINAL before Dean</title>
 <!-- write your code here -->
 <style>
   #animation_container {
@@ -22,14 +22,14 @@
   }
 </style>
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="Knowladge Race 10.2.18 FINAL.js?1518280723984"></script>
+<script src="Knowladge Race 11.2.18 FINAL before Dean.js"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
-	var comp=AdobeAn.getComposition("B9C8949870DB39419CE696BE4BC8918A");
+	var comp=AdobeAn.getComposition("5AA18447B56FE140B46FA3822E97D18A");
 	var lib=comp.getLibrary();
 	var loader = new createjs.LoadQueue(false);
 	loader.installPlugin(createjs.Sound);
@@ -51,34 +51,14 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.KnowladgeRace10218FINAL();
+	exportRoot = new lib.KnowladgeRace11218FINALbeforeDean();
 	stage = new lib.Stage(canvas);
 	stage.addChild(exportRoot);
 	stage.enableMouseOver();	
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		createjs.Ticker.setFPS(lib.properties.fps);
-		createjs.Ticker.addEventListener("tick", handleTick)
-		function handleTick(event) {
-			var cameraInstance = exportRoot.___camera___instance;
-			if(cameraInstance)
-			{
-				if(cameraInstance._off != null && cameraInstance._off == true)
-					exportRoot.transformMatrix = new createjs.Matrix2D();
-				else
-				{
-					var mat = cameraInstance.getMatrix();
-					var stageCenter = { 'x' : lib.properties.width/2, 'y' : lib.properties.height/2 };
-					mat.tx -= stageCenter.x;
-					mat.ty -= stageCenter.y;
-					var inverseMat = mat.invert();
-					inverseMat.prependTransform(stageCenter.x, stageCenter.y, 1, 1, 0, 0, 0, 0, 0);
-					inverseMat.appendTransform(-stageCenter.x, -stageCenter.y, 1, 1, 0, 0, 0, 0, 0);
-					exportRoot.transformMatrix = inverseMat;
-				}
-			}
-			stage.update();
-		}
+		createjs.Ticker.addEventListener("tick", stage);
 	}	    
 	//Code to support hidpi screens and responsive scaling.
 	function makeResponsive(isResp, respDim, isScale, scaleType) {		
