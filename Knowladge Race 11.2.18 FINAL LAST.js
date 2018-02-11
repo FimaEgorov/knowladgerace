@@ -2,73 +2,12 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.webFontTxtInst = {}; 
-var loadedTypekitCount = 0;
-var loadedGoogleCount = 0;
-var gFontsUpdateCacheList = [];
-var tFontsUpdateCacheList = [];
 lib.ssMetadata = [
-		{name:"Knowladge Race 11.2.18 FINAL LAST_atlas_P_", frames: [[3912,542,180,105],[2980,542,930,543],[2980,0,960,540],[3912,649,180,60],[3942,0,150,180],[2980,1467,460,260],[4048,468,32,32],[3832,1087,214,175],[0,1338,1518,740],[0,0,1696,1336],[2980,1729,250,100],[3692,1289,230,174],[2980,1289,710,176],[3942,471,104,53],[3442,1467,460,260],[3912,711,180,60],[3942,182,150,180],[3904,1465,186,55],[3942,416,104,53],[3942,364,150,50],[2980,1087,850,200],[3904,1522,185,54],[4048,416,45,50],[1698,0,1280,1220],[1698,1222,1280,1135]]},
-		{name:"Knowladge Race 11.2.18 FINAL LAST_atlas_NP_", frames: [[1922,0,1320,1920],[0,2725,1920,1280],[1922,1922,1920,1280],[0,1442,1920,1281],[0,7211,960,365],[1922,3204,1920,1280],[0,5929,1920,1280],[0,0,1920,1440],[0,4007,1280,1920],[1282,4486,1920,1109],[1922,6681,1280,853],[1922,5597,1920,1082]]}
+		{name:"Knowladge Race 11.2.18 FINAL LAST_atlas_P_", frames: [[3912,542,180,105],[2980,542,930,543],[2980,0,960,540],[3912,711,180,60],[3942,182,150,180],[3442,1784,460,260],[4048,468,32,32],[3832,1404,214,175],[0,1338,1518,740],[0,0,1696,1336],[2980,2046,250,100],[3692,1606,230,174],[2980,1606,710,176],[3942,471,104,53],[2980,1784,460,260],[3912,649,180,60],[3942,0,150,180],[3904,1782,186,55],[3942,416,104,53],[3942,364,150,50],[2980,1404,850,200],[3904,1839,185,54],[2980,1087,960,315],[4048,416,45,50],[1698,0,1280,1220],[1698,1222,1280,1135]]},
+		{name:"Knowladge Race 11.2.18 FINAL LAST_atlas_NP_", frames: [[1922,0,1320,1920],[0,4007,1920,1280],[1922,5126,1920,1280],[0,1442,1920,1281],[1922,7263,960,365],[0,2725,1920,1280],[1922,3844,1920,1280],[0,0,1920,1440],[1922,1922,1280,1920],[0,5289,1920,1109],[1922,6408,1280,853],[0,6400,1920,1082]]}
 ];
 
 
-
-lib.updateListCache = function (cacheList) {		
-	for(var i = 0; i < cacheList.length; i++) {		
-		if(cacheList[i].cacheCanvas)		
-			cacheList[i].updateCache();		
-	}		
-};		
-
-lib.addElementsToCache = function (textInst, cacheList) {		
-	var cur = textInst;		
-	while(cur != null && cur != exportRoot) {		
-		if(cacheList.indexOf(cur) != -1)		
-			break;		
-		cur = cur.parent;		
-	}		
-	if(cur != exportRoot) {		
-		var cur2 = textInst;		
-		var index = cacheList.indexOf(cur);		
-		while(cur2 != null && cur2 != cur) {		
-			cacheList.splice(index, 0, cur2);		
-			cur2 = cur2.parent;		
-			index++;		
-		}		
-	}		
-	else {		
-		cur = textInst;		
-		while(cur != null && cur != exportRoot) {		
-			cacheList.push(cur);		
-			cur = cur.parent;		
-		}		
-	}		
-};		
-
-lib.gfontAvailable = function(family, totalGoogleCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
-
-	loadedGoogleCount++;		
-	if(loadedGoogleCount == totalGoogleCount) {		
-		lib.updateListCache(gFontsUpdateCacheList);		
-	}		
-};		
-
-lib.tfontAvailable = function(family, totalTypekitCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
-
-	loadedTypekitCount++;		
-	if(loadedTypekitCount == totalTypekitCount) {		
-		lib.updateListCache(tFontsUpdateCacheList);		
-	}		
-};
 // symbols:
 
 
@@ -297,9 +236,16 @@ lib.tfontAvailable = function(family, totalTypekitCount) {
 
 
 
-(lib.timer = function() {
+(lib.timeoff = function() {
 	this.spriteSheet = ss["Knowladge Race 11.2.18 FINAL LAST_atlas_P_"];
 	this.gotoAndStop(22);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.timer = function() {
+	this.spriteSheet = ss["Knowladge Race 11.2.18 FINAL LAST_atlas_P_"];
+	this.gotoAndStop(23);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -320,14 +266,14 @@ lib.tfontAvailable = function(family, totalTypekitCount) {
 
 (lib.correctV = function() {
 	this.spriteSheet = ss["Knowladge Race 11.2.18 FINAL LAST_atlas_P_"];
-	this.gotoAndStop(23);
+	this.gotoAndStop(24);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.wrongX = function() {
 	this.spriteSheet = ss["Knowladge Race 11.2.18 FINAL LAST_atlas_P_"];
-	this.gotoAndStop(24);
+	this.gotoAndStop(25);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
@@ -368,6 +314,33 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.white_stars, new cjs.Rectangle(0,0,850,393), null);
+
+
+(lib.timeroffbox = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.text = new cjs.Text("שימו רגל על הגז..\nלהמשך לחצו ENTER", "bold 50px 'Arial'");
+	this.text.textAlign = "center";
+	this.text.lineHeight = 58;
+	this.text.lineWidth = 668;
+	this.text.parent = this;
+	this.text.setTransform(3.8,4.9);
+
+	this.text_1 = new cjs.Text("נגמר הזמן!", "bold 100px 'Arial'");
+	this.text_1.textAlign = "center";
+	this.text_1.lineHeight = 114;
+	this.text_1.lineWidth = 875;
+	this.text_1.parent = this;
+	this.text_1.setTransform(0,-120.8);
+
+	this.instance = new lib.timeoff();
+	this.instance.parent = this;
+	this.instance.setTransform(-480,-157.5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.text_1},{t:this.text}]}).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.timeroffbox, new cjs.Rectangle(-480,-157.5,960,315), null);
 
 
 (lib.pauseWindow = function(mode,startPosition,loop) {
@@ -819,11 +792,6 @@ p.nominalBounds = new cjs.Rectangle(-14.6,-14.1,29.2,29.2);
 	this.instance_17.parent = this;
 	this.instance_17.setTransform(-345,-244,0.8,0.8);
 
-	this.restart_btn = new lib.restart_btn();
-	this.restart_btn.parent = this;
-	this.restart_btn.setTransform(8,202.4,0.915,0.915,0,0,0,0.1,0);
-	new cjs.ButtonHelper(this.restart_btn, 0, 1, 1);
-
 	this.instance_18 = new lib.Symbol1();
 	this.instance_18.parent = this;
 	this.instance_18.setTransform(3,80);
@@ -836,7 +804,7 @@ p.nominalBounds = new cjs.Rectangle(-14.6,-14.1,29.2,29.2);
 	this.instance_20.parent = this;
 	this.instance_20.setTransform(-194,-198,0.241,0.243);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_11},{t:this.instance_10},{t:this.instance_9},{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.text_window4},{t:this.text2_window4,p:{x:-364.3,y:-240.2,text:"זמן ומספר השאלה",font:"bold 22px 'Tahoma'",lineHeight:28.55,lineWidth:230}},{t:this.text3_window4,p:{x:5.5,y:-188.3,text:"הוראות המשחק:",font:"bold 25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:230}},{t:this.text4_window4,p:{x:5.5,y:-155.3,text:"השתמשו במקשים 1-4 המסומנים בכדי לענות על שאלות",font:"25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:658}},{t:this.text5_window4,p:{x:5.5,y:-114.2,text:"מענה מוצלח יקדם אתכם במרוץ!",font:"25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:658}},{t:this.text6_window4,p:{x:5.5,y:-81.9,text:"היו מהירים מחברכם! ענית מהר – התקדמת יותר",font:"25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:658}},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12},{t:this.instance_5},{t:this.instance_10},{t:this.t2,p:{x:387.6,y:-45.4,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:118,color:"#000000"}},{t:this.t1,p:{x:-368.5,y:31,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:159,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"3",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"3",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"2",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"2",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"1",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"1",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t2,p:{x:3.2,y:-98.6,text:"GO!",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:262,color:"#000000"}},{t:this.instance_2},{t:this.t1,p:{x:3.2,y:72.6,text:"אם אתם מוכנים - לחצו ENTER",font:"bold 20px 'Arial'",lineHeight:24.35,lineWidth:262,color:"#000000"}}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.instance_17},{t:this.text2_window4,p:{x:-421.9,y:-240.1,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:101}},{t:this.text3_window4,p:{x:-257.3,y:-67.5,text:"1",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.text4_window4,p:{x:-27.4,y:-66.5,text:"2",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.text5_window4,p:{x:206.4,y:-66.2,text:"3",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.text6_window4,p:{x:442.6,y:-66.2,text:"4",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.instance_16,p:{x:-383}},{t:this.t2,p:{x:6.9,y:-241.9,text:"הקישו על המספר (1-4) המתאים לשאלה",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:490,color:"#000000"}},{t:this.instance_15},{t:this.t1,p:{x:-298.5,y:-204.2,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:54,color:"#000000"}},{t:this.instance_2}]},2).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.instance_16,p:{x:-370}},{t:this.text2_window4,p:{x:8,y:-245.3,text:"תוצאות",font:"bold 30px 'Tahoma'",lineHeight:38.2,lineWidth:490}},{t:this.instance_15},{t:this.text3_window4,p:{x:-354.8,y:-117.7,text:"התוצאה\n",font:"bold 20px 'Tahoma'",color:"#333333",lineHeight:26.15,lineWidth:180}},{t:this.text4_window4,p:{x:-266.8,y:18.5,text:"זמן ממוצע לשאלה בשניות",font:"bold 16px 'Tahoma'",color:"#666666",lineHeight:21.3,lineWidth:128}},{t:this.text5_window4,p:{x:-401.3,y:18.5,text:"מס' השגיאות",font:"bold 16px 'Tahoma'",color:"#666666",lineHeight:21.3,lineWidth:95}},{t:this.text6_window4,p:{x:341.8,y:-117.7,text:"התוצאה\n",font:"bold 20px 'Tahoma'",color:"#333333",lineHeight:26.15,lineWidth:180}},{t:this.instance_20},{t:this.t2,p:{x:407.3,y:18.5,text:"זמן ממוצע לשאלה בשניות",font:"bold 16px 'Tahoma'",lineHeight:21.3,lineWidth:128,color:"#666666"}},{t:this.t1,p:{x:272.4,y:18.5,text:"מס' השגיאות",font:"bold 16px 'Tahoma'",lineHeight:21.3,lineWidth:95,color:"#666666"}},{t:this.instance_19},{t:this.instance_18},{t:this.restart_btn},{t:this.instance_2}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_11},{t:this.instance_10},{t:this.instance_9},{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.text_window4},{t:this.text2_window4,p:{x:-364.3,y:-240.2,text:"זמן ומספר השאלה",font:"bold 22px 'Tahoma'",lineHeight:28.55,lineWidth:230}},{t:this.text3_window4,p:{x:5.5,y:-188.3,text:"הוראות המשחק:",font:"bold 25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:230}},{t:this.text4_window4,p:{x:5.5,y:-155.3,text:"השתמשו במקשים 1-4 המסומנים בכדי לענות על שאלות",font:"25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:658}},{t:this.text5_window4,p:{x:5.5,y:-114.2,text:"מענה מוצלח יקדם אתכם במרוץ!",font:"25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:658}},{t:this.text6_window4,p:{x:5.5,y:-81.9,text:"היו מהירים מחברכם! ענית מהר – התקדמת יותר",font:"25px 'Tahoma'",color:"#000000",lineHeight:32.15,lineWidth:658}},{t:this.instance_14},{t:this.instance_13},{t:this.instance_12},{t:this.instance_5},{t:this.instance_10},{t:this.t2,p:{x:387.6,y:-45.4,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:118,color:"#000000"}},{t:this.t1,p:{x:-368.5,y:31,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:159,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"3",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"3",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"2",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"2",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"1",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t1,p:{x:-1.2,y:-98.6,text:"1",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:100,color:"#000000"}},{t:this.instance_2}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.t2,p:{x:3.2,y:-98.6,text:"GO!",font:"bold 120px 'Arial'",lineHeight:136.1,lineWidth:262,color:"#000000"}},{t:this.instance_2},{t:this.t1,p:{x:3.2,y:72.6,text:"אם אתם מוכנים - לחצו ENTER",font:"bold 20px 'Arial'",lineHeight:24.35,lineWidth:262,color:"#000000"}}]},1).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.instance_17},{t:this.text2_window4,p:{x:-421.9,y:-240.1,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:101}},{t:this.text3_window4,p:{x:-257.3,y:-67.5,text:"1",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.text4_window4,p:{x:-27.4,y:-66.5,text:"2",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.text5_window4,p:{x:206.4,y:-66.2,text:"3",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.text6_window4,p:{x:442.6,y:-66.2,text:"4",font:"bold 20px 'Tahoma'",color:"#FFFFFF",lineHeight:26.15,lineWidth:31}},{t:this.instance_16,p:{x:-383}},{t:this.t2,p:{x:6.9,y:-241.9,text:"הקישו על המספר (1-4) המתאים לשאלה",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:490,color:"#000000"}},{t:this.instance_15},{t:this.t1,p:{x:-298.5,y:-204.2,text:"",font:"bold 20px 'Tahoma'",lineHeight:26.15,lineWidth:54,color:"#000000"}},{t:this.instance_2}]},2).to({state:[{t:this.instance_11},{t:this.instance_5},{t:this.instance_16,p:{x:-370}},{t:this.text2_window4,p:{x:8,y:-245.3,text:"תוצאות",font:"bold 30px 'Tahoma'",lineHeight:38.2,lineWidth:490}},{t:this.instance_15},{t:this.text3_window4,p:{x:-354.8,y:-117.7,text:"התוצאה\n",font:"bold 20px 'Tahoma'",color:"#333333",lineHeight:26.15,lineWidth:180}},{t:this.text4_window4,p:{x:-266.8,y:18.5,text:"זמן ממוצע לשאלה בשניות",font:"bold 16px 'Tahoma'",color:"#666666",lineHeight:21.3,lineWidth:128}},{t:this.text5_window4,p:{x:-401.3,y:18.5,text:"מס' השגיאות",font:"bold 16px 'Tahoma'",color:"#666666",lineHeight:21.3,lineWidth:95}},{t:this.text6_window4,p:{x:341.8,y:-117.7,text:"התוצאה\n",font:"bold 20px 'Tahoma'",color:"#333333",lineHeight:26.15,lineWidth:180}},{t:this.instance_20},{t:this.t2,p:{x:407.3,y:18.5,text:"זמן ממוצע לשאלה בשניות",font:"bold 16px 'Tahoma'",lineHeight:21.3,lineWidth:128,color:"#666666"}},{t:this.t1,p:{x:272.4,y:18.5,text:"מס' השגיאות",font:"bold 16px 'Tahoma'",lineHeight:21.3,lineWidth:95,color:"#666666"}},{t:this.instance_19},{t:this.instance_18},{t:this.instance_2}]},1).wait(1));
 	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({x:760.5},0).wait(1).to({x:744.1},0).wait(1).to({x:727.7},0).wait(1).to({x:711.2},0).wait(1).to({x:694.7},0).wait(1).to({x:678.3},0).wait(1).to({x:661.8},0).wait(1).to({x:645.4},0).wait(1).to({x:628.9},0).wait(1).to({x:612.5},0).wait(1).to({x:596},0).wait(1).to({x:579.6},0).wait(1).to({x:563.1},0).wait(1).to({x:546.7},0).wait(1).to({x:530.2},0).wait(1).to({x:513.8},0).wait(1).to({x:497.3},0).wait(1).to({x:480.9},0).wait(1).to({x:464.4},0).wait(1).to({x:447.9},0).wait(1).to({x:431.5},0).wait(1).to({x:415},0).wait(1).to({x:398.6},0).wait(1).to({x:382.2},0).wait(1).to({x:365.7},0).wait(1).to({x:349.2},0).wait(1).to({x:332.8},0).wait(1).to({x:316.3},0).wait(1).to({x:299.9},0).wait(1).to({x:283.4},0).wait(1).to({x:267},0).wait(1).to({x:250.5},0).wait(1).to({x:234.1},0).wait(1).to({x:217.6},0).wait(1).to({x:201.2},0).wait(1).to({x:184.7},0).wait(1).to({x:168.3},0).wait(1).to({x:151.8},0).wait(1).to({x:135.3},0).wait(1).to({x:118.9},0).wait(1).to({x:102.4},0).wait(1).to({x:86},0).wait(1).to({x:69.5},0).wait(1).to({x:53.1},0).wait(1).to({x:36.6},0).wait(1).to({x:20.2},0).wait(1).to({x:3.7},0).wait(1).to({x:-12.7},0).wait(1).to({x:-29.2},0).wait(1).to({x:-45.6},0).wait(1).to({x:-62.1},0).wait(1).to({x:-78.5},0).wait(1).to({x:-95},0).wait(1).to({x:-111.4},0).wait(1).to({x:-127.9},0).wait(1).to({x:-144.3},0).wait(1).to({x:-160.8},0).wait(1).to({x:-177.3},0).wait(1).to({x:-193.7},0).wait(1).to({x:-210.2},0).wait(1).to({x:-226.6},0).wait(1).to({x:-243},0).wait(1).to({x:-259.5},0).wait(1).to({x:-276},0).wait(1).to({x:-292.4},0).wait(1).to({x:-308.9},0).wait(1).to({x:-325.3},0).wait(1).to({x:-341.8},0).wait(1).to({x:-358.2},0).wait(1).to({x:-374.7},0).wait(1).to({x:-391.1},0).wait(1).to({x:-407.6},0).wait(1).to({x:-424},0).wait(1).to({x:-440.5},0).wait(1).to({x:-456.9},0).wait(1).to({x:-473.4},0).wait(1).to({x:-489.9},0).wait(1).to({x:-506.3},0).wait(1).to({x:-522.8},0).wait(1).to({x:-539.2},0).wait(1).to({x:-555.7},0).wait(1).to({x:-572.1},0).wait(1).to({x:-588.6},0).wait(1).to({x:-605},0).wait(1).to({x:-621.5},0).wait(1).to({x:-637.9},0).wait(1).to({x:-654.4},0).wait(1).to({x:-670.8},0).wait(1).to({x:-687.3},0).wait(1).to({x:-703.7},0).wait(1).to({x:-720.2},0).wait(1).to({x:-736.6},0).wait(1).to({x:-753.1},0).wait(1).to({x:-769.5},0).to({_off:true},1).wait(12));
 
 }).prototype = p = new cjs.MovieClip();
@@ -863,6 +831,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 			gameInMinutes++;
 		}
 		
+		var triger = 0;
 		
 		var carsInterval;
 		var carsInterval2;
@@ -1245,10 +1214,13 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 				nextscreentxt.x = 400;
 				nextscreentxt.y = 460;
 				nextscreentxt.color = "#FFFFFF";
-				nextscreentxt.font = "20px Arial";
+				nextscreentxt.font = "16px Arial";
 				stage.addChild(nextscreentxt);
 				nextscreentxt.text = " להמשך הקישו על ENTER";
 				nextscreentxt.name = "nextscreentxt";
+		
+		
+		
 		
 				stage.removeChild(stage.getChildByName("player1"));
 				stage.removeChild(stage.getChildByName("player2"));
@@ -1256,16 +1228,17 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 				stage.removeChild(stage.getChildByName("nextscreentxt"));
 				home.Back.gotoAndPlay(96); //המסך המוצג כעת
 				window.removeEventListener("keydown", gameinstructions);
-				window.addEventListener("keydown", gameone1);
+				window.addEventListener("keydown", beforegame);
 			}
 			return true;
 		}
-		function gameone1() {
+		
+		function beforegame() {
 			stage.removeChild(stage.getChildByName("p1name"));
 			stage.removeChild(stage.getChildByName("p2name"));
 			stage.removeChild(stage.getChildByName("nextscreentxt"));
 			home.Back.gotoAndPlay(97);
-			window.removeEventListener("keydown", gameone1);
+			window.removeEventListener("keydown", beforegame);
 			window.addEventListener("keydown", gameone);
 		}
 		
@@ -1385,7 +1358,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 		
 									pictureq.name = "picQ";
 									stage.addChild(pictureq);
-									imageExplain(); //מאפשר להסבר על התמונה להופיע
+									//imageExplain(); //מאפשר להסבר על התמונה להופיע
 									//pictureq.addEventListener('mouseover', hoverPic); //מאפשר להגדיל את התמונה
 									//pictureq.addEventListener('mouseout', hoverPicOut); //מבטל הגדלת תמונה ביציאה ממנה
 								}
@@ -1453,43 +1426,43 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 		
 									questionElms.push(thisPic);
 									stage.addChild(thisPic);
-									imageExplain(); //מאפשר להסבר על התמונה להופיע
+									//imageExplain(); //מאפשר להסבר על התמונה להופיע
 									//"p" + i.addEventListener('mouseover', hoverPic); //מאפשר להגדיל את התמונה
 									//"p" + i.addEventListener('mouseout', hoverPicOut); //מבטל הגדלת תמונה ביציאה ממנה
 								}
 							}
 						}
-						function imageExplain() {
-							var textPic = new createjs.Text();
-							questionElms.push(textPic);
-							textPic.x = stageWidth / 2;
-							textPic.y = 20; //להחליט איפה ממוקם על המסך
-							textPic.color = "#FFFFF ";
-							textPic.font = "10px Arial";
-							textPic.text = "להגדלת התמונה עברו מעליה בעזרת העכבר";
-							textPic.name = "howToPic";
-							stage.addChild(textPic);
-						}
-						function hoverPic(e) {
-							e.currentTarget.scaleX = 1.2;
-							e.currentTarget.scaleY = 1.2;
-							removeIfExists("howToPic");
-						}
-						function hoverPicOut(e) {
-							e.currentTarget.scaleX = 1;
-							e.currentTarget.scaleY = 1;
+						//function imageExplain() {
+						//	var textPic = new createjs.Text();
+						//	questionElms.push(textPic);
+						//	textPic.x = stageWidth / 2;
+						//	textPic.y = 20; //להחליט איפה ממוקם על המסך
+						//	textPic.color = "#FFFFF ";
+						//	textPic.font = "10px Arial";
+						//	textPic.text = "להגדלת התמונה עברו מעליה בעזרת העכבר";
+						//	textPic.name = "howToPic";
+						//	stage.addChild(textPic);
+						//}
+						//function hoverPic(e) {
+						//	e.currentTarget.scaleX = 1.2;
+						//	e.currentTarget.scaleY = 1.2;
+						//	removeIfExists("howToPic");
+						//}
+						//function hoverPicOut(e) {
+						//	e.currentTarget.scaleX = 1;
+						//	e.currentTarget.scaleY = 1;
 		
-							var textPic = new createjs.Text();
-							questionElms.push(textPic);
-							textPic.x = stageWidth / 2;
-							textPic.y = 20; //להחליט איפה ממוקם על המסך
-							textPic.color = "#FFFFF ";
-							textPic.textAlign = "center";
-							textPic.font = "14px Arial";
-							textPic.text = "להגדלת התמונה עברו מעליה בעזרת העכבר";
-							textPic.name = "howToPic";
-							stage.addChild(textPic);
-						}
+						//	var textPic = new createjs.Text();
+						//	questionElms.push(textPic);
+						//	textPic.x = stageWidth / 2;
+						//	textPic.y = 20; //להחליט איפה ממוקם על המסך
+						//	textPic.color = "#FFFFF ";
+						//	textPic.textAlign = "center";
+						//	textPic.font = "14px Arial";
+						//	textPic.text = "להגדלת התמונה עברו מעליה בעזרת העכבר";
+						//	textPic.name = "howToPic";
+						//	stage.addChild(textPic);
+						//}
 		
 		
 						openkeys(); //קורא לפונקציה שמחליטה כמה מקשים שמישים בשאלה
@@ -1506,8 +1479,10 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 				}
 		
 				function openFinishFrame() {
+		
 					timeperp1 = parseInt(timeperp1 / qmax);
 					timeperp2 = parseInt(timeperp2 / qmax);
+					qnumtxt.text = "";
 					home.Back.gotoAndPlay(106);
 					textboxfortimer.text = '';
 					clearInterval(timerInterval);
@@ -1521,6 +1496,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					scorep1txtbox.textAlign = "center";
 					scorep1txtbox.text = scorep1;
 					stage.addChild(scorep1txtbox);
+					questionElms.push(scorep1txtbox);
 		
 					scorep2txtbox = new createjs.Text();
 					scorep2txtbox.x = 820;
@@ -1530,6 +1506,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					scorep2txtbox.textAlign = "center";
 					scorep2txtbox.text = scorep2;
 					stage.addChild(scorep2txtbox);
+					questionElms.push(scorep2txtbox);
 		
 					timep1txtbox = new createjs.Text();
 					timep1txtbox.x = 220;
@@ -1539,6 +1516,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					timep1txtbox.textAlign = "center";
 					timep1txtbox.text = timeperp1;
 					stage.addChild(timep1txtbox);
+					questionElms.push(timep1txtbox);
 		
 					timep2txtbox = new createjs.Text();
 					timep2txtbox.x = 880;
@@ -1548,6 +1526,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					timep2txtbox.textAlign = "center";
 					timep2txtbox.text = timeperp2;
 					stage.addChild(timep2txtbox);
+					questionElms.push(timep2txtbox);
 		
 		
 					falsep1txtbox = new createjs.Text();
@@ -1558,6 +1537,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					falsep1txtbox.textAlign = "center";
 					falsep1txtbox.text = falsep1;
 					stage.addChild(falsep1txtbox);
+					questionElms.push(falsep1txtbox);
 		
 					falsep2txtbox = new createjs.Text();
 					falsep2txtbox.x = 750;
@@ -1567,6 +1547,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					falsep2txtbox.textAlign = "center";
 					falsep2txtbox.text = falsep2;
 					stage.addChild(falsep2txtbox);
+					questionElms.push(falsep2txtbox);
 		
 					//הודעות נצחון:
 					finalExplain = new createjs.Text();
@@ -1577,6 +1558,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 					finalExplain.textAlign = "center";
 					finalExplain.text = "לאחר מרוץ של " + qmax + " שאלות ו-" + gameInMinutes + ":" + gameInSeconds + " דקות הזוכה הוא:";
 					stage.addChild(finalExplain);
+					questionElms.push(finalExplain);
 		
 					//הזוכה:
 					if (scorep1 > scorep2) {
@@ -1588,6 +1570,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 						theWinner.textAlign = "center";
 						theWinner.text = p1name.text;
 						stage.addChild(theWinner);
+						questionElms.push(theWinner);
 					}
 					if (scorep2 > scorep1) {
 						theWinner = new createjs.Text();
@@ -1598,6 +1581,8 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 						theWinner.textAlign = "center";
 						theWinner.text = p2name.text;
 						stage.addChild(theWinner);
+						questionElms.push(theWinner);
+		
 					} else if (scorep1 == scorep2) {
 						theWinner = new createjs.Text();
 						theWinner.x = stageWidth / 2;
@@ -1607,12 +1592,48 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 						theWinner.textAlign = "center";
 						theWinner.text = "תיקו";
 						stage.addChild(theWinner);
+						questionElms.push(theWinner);
 					}
-					
-					restart_btn.addEventListener('click', location.reload());
-					
-						
+		
+					var restart_btn = new lib.restart_btn; // הצבת הזמן הכולל שהשחקן שיחק
+					restart_btn.x = 580;
+					restart_btn.y = 340;
+					restart_btn.scaleX = 0.7;
+					restart_btn.scaleY = 0.7;
+					restart_btn.name = "restart_btn";
+					stage.addChild(restart_btn);
+					restart_btn.cursor = "pointer";
+					restart_btn.addEventListener('click', allover);
+					questionElms.push(restart_btn);
+		
+		
+		
 				}
+		
+				function allover() {
+					for (i = 0; i < qmechanics.length; i++) {
+						if (qmechanics[i][0] == 1) {
+							qmechanics[i][0] == 0;
+						}
+					}
+					for (i = 0; i < qsports.length; i++) {
+						if (qsports[i][0] == 1) {
+							qsports[i][0] == 0;
+						}
+					}
+		
+					for (i = 0; i < questionElms.length; i++) {
+						var elmIndex = stage.getChildIndex(questionElms[i]);
+						stage.removeChildAt(elmIndex);
+						stage.removeChild(stage.getChildByName("blue_car"));
+						stage.removeChild(stage.getChildByName("orange_car"));
+						home.Back.gotoAndPlay(97); //המסך המוצג כעת
+						window.addEventListener("keydown",beforegame );
+					}
+		
+				}
+		
+		
 				function cleanQuestion() {
 					for (i = 0; i < questionElms.length; i++) {
 						var elmIndex = stage.getChildIndex(questionElms[i])
@@ -1690,7 +1711,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 				function markAnswerP1() {
 					var rightArrow = new lib.rightArrow();
 					rightArrow.x = (pickedAnsp1) * (stageWidth / (qSelected[rndq].length - 2)) - 260;
-					rightArrow.y = 260;
+					rightArrow.y = 235;
 					rightArrow.scaleX = 0.5;
 					stage.addChild(rightArrow);
 					rightArrow.name = "rightArrow";
@@ -1699,7 +1720,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 				function markAnswerP2() {
 					var leftArrow = new lib.leftArrow();
 					leftArrow.x = (pickedAnsp2) * (stageWidth / (qSelected[rndq].length - 2)) - 50;
-					leftArrow.y = 260;
+					leftArrow.y = 285;
 					leftArrow.scaleX = 0.5;
 					stage.addChild(leftArrow);
 					leftArrow.name = "leftArrow";
@@ -1785,13 +1806,45 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 								markAnswerCorrect();
 							}
 						}
-						if ((counterAnsp1 == 1 && counterAnsp2 == 1) || timeperq == 0) {
+						if (timeperq == 0) {
+							clearInterval(timerInterval);
+							cleanQuestion();
+		
+							var endOfTime = new lib.timeroffbox();
+							endOfTime.x = stageWidth / 2;
+							endOfTime.y = 230;
+							endOfTime.name = "endOfTime";
+							stage.addChild(endOfTime);
+							questionElms.push(endOfTime);
+		
+							if (e.keyCode == 13) {
+								stage.removeChild(stage.getChildByName("endOfTime"));
+								window.removeEventListener("keydown", processAnswers);
+								timeperq = 30;
+								counterAnsp1 = 0; //מאפס את ההגבלה על בחירה נוספת של השחקן
+								counterAnsp2 = 0; //מאפס את ההגבלה על בחירה נוספת של השחקן
+								//לאפס את כל החלון - להוריד כל מה שעליו
+								bringTheQuestion(); //בחירת שאלה מחדש
+							}
+						}
+						if (counterAnsp1 == 1 && counterAnsp2 == 1) {
 		
 							//מונע לחיצות אחרות מעבר לאנטר ומעבר לשאלה הבאה
 							//להקפיץ את התשובות הנכונות/לא נכונות ואת ההנחיה להמשך ע"ג המסך
 							clearInterval(timerInterval);
 							timeperq = 30;
+							var nextscreentxt = new createjs.Text();
+							nextscreentxt.x = 400;
+							nextscreentxt.y = 440;
+							nextscreentxt.color = "#FFFFFF";
+							nextscreentxt.font = "15px Arial";
+							stage.addChild(nextscreentxt);
+							nextscreentxt.text = " להמשך הקישו על ENTER";
+							nextscreentxt.name = "nextscreentxt";
+							questionElms.push(nextscreentxt);
+		
 							if (e.keyCode == 13) {
+								stage.removeChild(stage.getChildByName("nextscreentxt"));
 								window.removeEventListener("keydown", processAnswers);
 								counterAnsp1 = 0; //מאפס את ההגבלה על בחירה נוספת של השחקן
 								counterAnsp2 = 0; //מאפס את ההגבלה על בחירה נוספת של השחקן
@@ -1852,6 +1905,7 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 			aboutWindow.x = 100;
 			aboutWindow.y = 80;
 			stage.addChild(aboutWindow);
+		
 		
 			var aboutX = new lib.about_x();
 			aboutX.x = 116;
@@ -1916,9 +1970,6 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 		
 		function closeAbout() { //פונקציית סגירת אודות
 		
-			if (timeperq < 30) {
-				setInterval(timer, 1000); //השעון במצב משחק
-			}
 			stage.removeChild(stage.getChildByName("aboutX"));
 			stage.removeChild(stage.getChildByName("aboutWindow"));
 			stage.removeChild(stage.getChildByName("HIT"));
@@ -1967,23 +2018,22 @@ p.nominalBounds = new cjs.Rectangle(-480,-250,2514,520);
 p.nominalBounds = new cjs.Rectangle(480,290,2514,520);
 // library properties:
 lib.properties = {
-	id: '5AA18447B56FE140B46FA3822E97D18A',
+	id: '55F4A58258F1B447A1ADD41B9171ECD3',
 	width: 960,
 	height: 540,
 	fps: 2,
 	color: "#FFFFFF",
 	opacity: 1.00,
-	webfonts: {},
 	manifest: [
-		{src:"images/Knowladge Race 11.2.18 FINAL LAST_atlas_P_.png", id:"Knowladge Race 11.2.18 FINAL LAST_atlas_P_"},
-		{src:"images/Knowladge Race 11.2.18 FINAL LAST_atlas_NP_.jpg", id:"Knowladge Race 11.2.18 FINAL LAST_atlas_NP_"},
-		{src:"sounds/endsound.mp3", id:"endsound"},
-		{src:"sounds/movesound.mp3", id:"movesound"},
-		{src:"sounds/startsound.mp3", id:"startsound"},
-		{src:"https://code.jquery.com/jquery-2.2.4.min.js", id:"lib/jquery-2.2.4.min.js"},
-		{src:"components/sdk/anwidget.js", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/textinput.js", id:"an.TextInput"},
-		{src:"components/ui/src/combobox.js", id:"an.ComboBox"}
+		{src:"images/Knowladge Race 11.2.18 FINAL LAST_atlas_P_.png?1518355726477", id:"Knowladge Race 11.2.18 FINAL LAST_atlas_P_"},
+		{src:"images/Knowladge Race 11.2.18 FINAL LAST_atlas_NP_.jpg?1518355726477", id:"Knowladge Race 11.2.18 FINAL LAST_atlas_NP_"},
+		{src:"sounds/endsound.mp3?1518355726546", id:"endsound"},
+		{src:"sounds/movesound.mp3?1518355726546", id:"movesound"},
+		{src:"sounds/startsound.mp3?1518355726546", id:"startsound"},
+		{src:"https://code.jquery.com/jquery-2.2.4.min.js?1518355726546", id:"lib/jquery-2.2.4.min.js"},
+		{src:"components/sdk/anwidget.js?1518355726546", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/textinput.js?1518355726546", id:"an.TextInput"},
+		{src:"components/ui/src/combobox.js?1518355726546", id:"an.ComboBox"}
 	],
 	preloads: []
 };
@@ -2021,7 +2071,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['5AA18447B56FE140B46FA3822E97D18A'] = {
+an.compositions['55F4A58258F1B447A1ADD41B9171ECD3'] = {
 	getStage: function() { return exportRoot.getStage(); },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
